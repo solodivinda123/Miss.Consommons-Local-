@@ -1,0 +1,6 @@
+{
+  "name": "Miss Consommons Local",
+  "description": "Plateforme moderne de promotion du consommer local à Kinshasa. Découvrez les ambassadrices des 24 communes, le calendrier du concours, et inscrivez-vous en ligne.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

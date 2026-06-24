@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Source Sans 3", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Core brand Gold: Warm champagne gold from the laurel wreath and hand of the logo */
+  --color-gold-50: #fbf9f4;
+  --color-gold-100: #f4edd9;
+  --color-gold-200: #e8dbb3;
+  --color-gold-300: #d9bf82;
+  --color-gold-400: #cb9f54; /* Beautiful mid-gold */
+  --color-gold-500: #b88d3d; /* Premium Brand Gold */
+  --color-gold-600: #a17730;
+  --color-gold-700: #815b22;
+  --color-gold-800: #614217;
+  --color-gold-900: #422d0f;
+  --color-gold-950: #1b1104; /* Very deep warm bronze-black */
+
+  /* Core brand Forest: Velvety deep organic green from the "CONCOUR" banner and leaves of the logo */
+  --color-forest-50: #f0f7f3;
+  --color-forest-100: #daebd9;
+  --color-forest-200: #b6d8bd;
+  --color-forest-300: #88bd94;
+  --color-forest-400: #559c67;
+  --color-forest-500: #287a48; /* Main fresh green */
+  --color-forest-600: #1d6136;
+  --color-forest-700: #154c2a;
+  --color-forest-800: #0f371f;
+  --color-forest-900: #0a2515;
+  --color-forest-950: #041008; /* Deep rich velvet black-green */
+}
+
+/* Base resets & custom animations */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #050505 !important; /* Force obsidian black background from logo background */
+  color: #f5f5f4 !important; /* Elegant warm stone text */
+}
+
+/* Enforce dark theme for all sections (replaces light bg-stone-50/100/etc) */
+section, 
+main,
+div#root {
+  background-color: #050505 !important;
+}
+
+/* Ensure background colors of section components are dark obsidian or black */
+.bg-stone-50,
+.bg-stone-100,
+.bg-stone-100\/40,
+section[class*="bg-stone-50"],
+section[class*="bg-stone-100"] {
+  background-color: #050505 !important;
+}
+
+/* Map white cards to semi-transparent dark obsidian cards with blur and fine gold outline */
+.bg-white,
+div[class*="bg-white"]:not(button):not(input) {
+  background-color: rgba(13, 16, 12, 0.8) !important; /* obsidian dark-green blend */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-color: rgba(184, 141, 61, 0.2) !important; /* soft luxury gold outline */
+}
+
+/* High contrast headings and labels */
+h1, h2, h3, h4, h5, h6,
+.text-stone-900,
+.text-stone-850,
+.text-stone-800 {
+  color: #ffffff !important;
+}
+
+p, 
+.text-stone-500,
+.text-stone-600 {
+  color: #d6d3d1 !important; /* Warmer stone/slate color */
+}
+
+/* Adjust general border colors to match dark warm theme */
+.border-stone-200,
+.border-stone-150,
+.border-stone-100 {
+  border-color: rgba(184, 141, 61, 0.25) !important;
+}
+
+/* Keep white buttons high-contrast and warm white */
+button.bg-white,
+.bg-white.text-stone-950,
+.bg-white.text-slate-950 {
+  background-color: #ffffff !important;
+  color: #050505 !important;
+}
+
+/* Handle input elements and form fields in dark mode */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+  background-color: rgba(13, 16, 12, 0.9) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(184, 141, 61, 0.3) !important;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder,
+textarea::placeholder {
+  color: #78716c !important;
+}
+
+/* Glow decorative backgrounds matching logo brand colors */
+.bg-gold-500\/5 {
+  background-color: rgba(184, 141, 61, 0.08) !important; /* Gold glow */
+  filter: blur(120px) !important;
+}
+.bg-forest-500\/5 {
+  background-color: rgba(40, 122, 72, 0.08) !important; /* Forest green glow */
+  filter: blur(120px) !important;
+}
+
+/* Shimmer gold is now luxurious gold gradient */
+.shimmer-gold {
+  background: linear-gradient(
+    to right,
+    #815b22 20%,
+    #cb9f54 40%,
+    #f4edd9 60%,
+    #cb9f54 80%,
+    #815b22 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shine 6s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Custom scrollbar styling matching Brand Theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c2317;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b88d3d;
+}
+
+/* Radial spotlight effect for Brand Theme */
+.bg-spotlight {
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(184, 141, 61, 0.15) 0%,
+    rgba(40, 122, 72, 0.06) 50%,
+    transparent 100%
+  );
+}
